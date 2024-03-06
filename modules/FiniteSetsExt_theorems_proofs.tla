@@ -386,7 +386,10 @@ LEMMA MapThenSumSetZero ==
            MapThenSumSet(op, S) = 0
     PROVE \A e \in S: op(e) = 0
 PROOF
-    BY CardSumZero, MapThenSumSetDefined
+    <1>0. MapThenSumSet(op, S) = CardSum(S, op) BY MapThenSumSetDefined
+    <1>1. CardSum(S, op) = 0 BY <1>0
+    <1>2. \A e \in S: op(e) = 0 BY <1>1, CardSumZero
+    <1>q. QED BY <1>2
 
 LEMMA MapThenSumSetZeros ==
     ASSUME NEW S, IsFiniteSet(S),
